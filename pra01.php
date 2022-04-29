@@ -32,7 +32,20 @@
 
     echo "<hr>";
 
+    $allDays=[]; //所有天數的空陣列
 
+    for($i=0; $i<$monthDay; $i++){
+        $date=date("Y-m-d",strtotime("+$i days",$firstDaySecond));
+        $allDays[]=$date;
+    }
+
+    echo "<pre>";
+    print_r($allDays);
+    echo "</pre>";
+
+    // foreach($allDays as $day){
+    //     echo "<div> {$day} </div>";
+    // }
 
 
 
