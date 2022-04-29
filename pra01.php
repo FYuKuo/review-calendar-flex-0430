@@ -6,7 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>課後複習-0429</title>
     <style>
+        * {
+            box-sizing: border-box;
 
+        }
+        .table {
+            display: flex;
+            flex-wrap: wrap;
+            width: 560px;
+            height: 560px;
+            align-content: flex-start;
+            
+        }
+        .table>div {
+            width: 80px;
+            height: 80px;
+            border: 1px solid lightblue;
+            box-sizing: border-box;
+
+        }
     </style>
 </head>
 <body>
@@ -45,6 +63,11 @@
 
     echo "<hr>";
 
+    ?>
+
+    <div class="table">
+
+    <?php
 
     foreach($allDays as $day){
         echo "<div> {$day} </div>";
@@ -54,10 +77,11 @@
 
 
 
-
-
-
     ?>
+
+    </div>
+
+
 
 </body>
 </html>
