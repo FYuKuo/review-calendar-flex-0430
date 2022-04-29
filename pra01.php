@@ -43,9 +43,12 @@
     print_r($allDays);
     echo "</pre>";
 
-    // foreach($allDays as $day){
-    //     echo "<div> {$day} </div>";
-    // }
+    echo "<hr>";
+
+
+    foreach($allDays as $day){
+        echo "<div> {$day} </div>";
+    }
 
 
 
