@@ -17,6 +17,7 @@
             height: 700px;
             align-content: flex-start;
             text-align: center;
+            
         }
         .table>div {
             width: 100px;
@@ -31,7 +32,7 @@
 <body>
     <h2>利用Flex模式+陣列製作月曆</h2>
     <?php
-    $month=4; //月份
+    $month=5; //月份
     $firstDay=date("Y-") . $month . "-1"; //月份的第一天日期
     $firstDaySecond=strtotime($firstDay); //月份的第一天秒數
     $firstDayWeek=date("w",$firstDaySecond); //月份的第一天星期幾
@@ -53,9 +54,17 @@
 
     $allDays=[]; //所有天數的空陣列
 
+    for($i=0; $i<$firstDayWeek ; $i++){
+        $allDays[]="";
+    }
+
     for($i=0; $i<$monthDay; $i++){
         $date=date("Y-m-d",strtotime("+$i days",$firstDaySecond));
         $allDays[]=$date;
+    }
+
+    for($i=0; $i<6-$lastDayWeek; $i++){
+        $allDays[]="";
     }
 
     echo "<pre>";
