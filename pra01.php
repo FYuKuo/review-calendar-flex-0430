@@ -13,16 +13,17 @@
         .table {
             display: flex;
             flex-wrap: wrap;
-            width: 560px;
-            height: 560px;
+            width: 700px;
+            height: 700px;
             align-content: flex-start;
-            
+            text-align: center;
         }
         .table>div {
-            width: 80px;
-            height: 80px;
+            width: 100px;
+            height: 100px;
             border: 1px solid lightblue;
             box-sizing: border-box;
+            
 
         }
     </style>
@@ -66,7 +67,13 @@
     ?>
 
     <div class="table">
-
+    <div class="header">星期日</div>
+    <div class="header">星期一</div>
+    <div class="header">星期二</div>
+    <div class="header">星期三</div>
+    <div class="header">星期四</div>
+    <div class="header">星期五</div>
+    <div class="header">星期六</div>
     <?php
 
     foreach($allDays as $day){
