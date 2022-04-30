@@ -46,7 +46,11 @@
             background-color: #FBCEB1;
         }
         .today {
-            background-color: #CF9FFF;
+            font-size: 20px;
+            color: red;
+            text-decoration: underline;
+            text-decoration-color: red;
+            text-underline-offset: 5px;
 
         }
     </style>
