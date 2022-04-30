@@ -38,8 +38,16 @@
             height: 50px;
             line-height: 50px;
         }
+        
+        .workday {
+            background-color: #DAF7A6;
+        }
+        .weekend {
+            background-color: #FBCEB1;
+        }
         .today {
-            background-color: lightpink;
+            background-color: #CF9FFF;
+
         }
     </style>
 </head>
@@ -110,14 +118,24 @@
 
         //利用陣列的FOR迴圈印出表格及日期
         foreach ($allDays as $day) {
+
+            //如果陣列中的日期是今天的日期,就將today放入變數中
             if($day == $today){
                 $checktoday="today";
             }
-            
+
             //如果$day字串不是空白時轉換字串的型態為日期,並印出div和日期
             if (!empty($day)) { 
-                $dateFont = date("d", strtotime($day));
-                echo "<div class='$checktoday'> {$dateFont} </div>";
+                $dateFont=date("d", strtotime($day)); //將陣列字串轉成日期的"日"格式
+                $dateweek=date("w",strtotime($day));  //將陣列字串轉成日期的"星期幾"格式
+
+                //判斷是否為周末
+                if($dateweek == 0 || $dateweek == 6){
+                    echo "<div class='$checktoday weekend'> {$dateFont} </div>"; //是週末就印出有class=weekend 的日期,並加上檢查是否為今天的變數
+                }else{
+                    echo "<div class='$checktoday workday'> {$dateFont} </div>"; //是上班日就印出有class=workday 的日期,並加上檢查是否為今天的變數
+                }
+
                 
             }else{
                 //如果$day字串是空白時,印出空白的div
