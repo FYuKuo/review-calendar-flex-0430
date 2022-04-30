@@ -19,16 +19,27 @@
             height: 700px;
             align-content: flex-start;
             text-align: center;
+            margin:0 auto;
+            margin-top: 1px;
 
         }
 
         .table>div {
             width: 100px;
             height: 100px;
-            border: 1px solid lightblue;
-            box-sizing: border-box;
+            border: 1px solid lightgray;
+            line-height: 100px;
+            margin-left: -1px;
+            margin-top: -1px;
+        }
 
-
+        .table>.header {
+            font-weight: bolder;
+            height: 50px;
+            line-height: 50px;
+        }
+        .today {
+            background-color: lightpink;
         }
     </style>
 </head>
@@ -36,7 +47,7 @@
 <body>
     <h2>利用Flex模式+陣列製作月曆</h2>
     <?php
-    $month = 5; //月份
+    $month = 4; //月份
     $firstDay = date("Y-") . $month . "-1"; //月份的第一天日期
     $firstDaySecond = strtotime($firstDay); //月份的第一天秒數
     $firstDayWeek = date("w", $firstDaySecond); //月份的第一天星期幾
@@ -44,6 +55,8 @@
     $lastDay = date("Y-") . $month . "-" . $monthDay; //月份最後一天日期
     $lastDaySecond = strtotime($lastDay); //月份最後一天秒數
     $lastDayWeek = date("w", $lastDaySecond); //月份最後一天星期幾
+    $checktoday=""; //檢查是否為今天的空變數
+    $today=date("Y-m-d"); //今天的日期
 
     echo "月份 ==> $month <br>";
     echo "月份的第一天日期 ==> $firstDay <br>";
@@ -97,12 +110,14 @@
 
         //利用陣列的FOR迴圈印出表格及日期
         foreach ($allDays as $day) {
+            if($day == $today){
+                $checktoday="today";
+            }
             
             //如果$day字串不是空白時轉換字串的型態為日期,並印出div和日期
             if (!empty($day)) { 
-
                 $dateFont = date("d", strtotime($day));
-                echo "<div> {$dateFont} </div>";
+                echo "<div class='$checktoday'> {$dateFont} </div>";
                 
             }else{
                 //如果$day字串是空白時,印出空白的div
@@ -110,7 +125,7 @@
             }
             
         }
-
+ 
 
 
 
